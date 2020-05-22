@@ -1,0 +1,9 @@
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\bin\Debug\netstandard2.0\SMSGlobal.deps.json
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\bin\Debug\netstandard2.0\SMSGlobal.dll
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\bin\Debug\netstandard2.0\SMSGlobal.pdb
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.csprojAssemblyReference.cache
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.csproj.CoreCompileInputs.cache
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.AssemblyInfoInputs.cache
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.AssemblyInfo.cs
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.dll
+C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.pdb

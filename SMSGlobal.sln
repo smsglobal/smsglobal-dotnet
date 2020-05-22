@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSGlobal.api", "SMSGlobal\SMSGlobal.api.csproj", "{BBA1EA28-862A-4E97-AC9B-8A70405581EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSGlobalTest", "SMSGlobalTest\SMSGlobalTest.csproj", "{B767C395-9168-4AD1-9414-2F2004972279}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBA1EA28-862A-4E97-AC9B-8A70405581EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA1EA28-862A-4E97-AC9B-8A70405581EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA1EA28-862A-4E97-AC9B-8A70405581EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA1EA28-862A-4E97-AC9B-8A70405581EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B767C395-9168-4AD1-9414-2F2004972279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B767C395-9168-4AD1-9414-2F2004972279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B767C395-9168-4AD1-9414-2F2004972279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B767C395-9168-4AD1-9414-2F2004972279}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD09ED3F-8A5D-4ED9-985A-0E79AF5FC72C}
+	EndGlobalSection
+EndGlobal
