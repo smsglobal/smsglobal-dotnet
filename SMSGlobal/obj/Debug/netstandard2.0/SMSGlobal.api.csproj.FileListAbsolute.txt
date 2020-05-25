@@ -1,9 +1,0 @@
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\bin\Debug\netstandard2.0\SMSGlobal.api.deps.json
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\bin\Debug\netstandard2.0\SMSGlobal.api.dll
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\bin\Debug\netstandard2.0\SMSGlobal.api.pdb
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.api.csproj.CoreCompileInputs.cache
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.api.AssemblyInfoInputs.cache
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.api.AssemblyInfo.cs
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.api.dll
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.api.pdb
-C:\Users\parkash.kumar\source\repos\SMSGlobal\SMSGlobal\obj\Debug\netstandard2.0\SMSGlobal.api.csprojAssemblyReference.cache
