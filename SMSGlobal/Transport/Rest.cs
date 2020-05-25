@@ -92,6 +92,42 @@ namespace SMSGlobal.SMS.Transport
         }
 
         /// <summary>
+        /// Gets incoming sms messages.
+        /// </summary>
+        /// <param name="filter">The rest api query string result filter.</param>
+        /// <returns>Task</returns>
+        public async Task<Response.SmsSentMessages> getSmsIncoming(string filter = "")
+        {
+            HttpResponseMessage response = await Request("sms-incoming", null, filter);
+
+            return await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+        }
+
+        /// <summary>
+        /// Delete incoming sms message by Id.
+        /// </summary>
+        /// <param name="filter">The rest api query string result filter.</param>
+        /// <returns>Task</returns>
+        public async Task<int> deleteSmsIncoming(string id = "")
+        {
+            HttpResponseMessage response = await Request("sms-incoming", null, null, id, "delete");
+
+            return (int)response.StatusCode;
+        }
+
+        /// <summary>
+        /// Gets sms message by Id.
+        /// </summary>
+        /// <param name="filter">The rest api query string result filter.</param>
+        /// <returns>Task</returns>
+        public async Task<Response.SmsIncoming> getSmsIncomingById(string id = "")
+        {
+            HttpResponseMessage response = await Request("sms-incoming", null, null, id);
+
+            return await response.Content.ReadAsAsync<Response.SmsIncoming>();
+        }
+
+        /// <summary>
         /// Requests information from the rest api.
         /// </summary>
         /// <param name="path">The rest api path.</param>

@@ -58,5 +58,35 @@ namespace SMSGlobal.api
             return res;
         }
 
+        public async System.Threading.Tasks.Task<SmsSentMessages> SMSGetIncoming(string filter)
+        {
+            SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
+
+            // get all messages using filter
+            var res = await rest.getSmsIncoming(filter);
+
+            return res;
+        }
+
+        public async System.Threading.Tasks.Task<int> SMSDeleteIncoming(string id)
+        {
+            SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
+
+            // delete a message
+            var res = await rest.deleteSmsIncoming(id);
+
+            return res;
+        }
+
+        public async System.Threading.Tasks.Task<SmsIncoming> SMSGetIncomingById(string id)
+        {
+            SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
+
+            // gets a message
+            var res = await rest.getSmsIncomingById(id);
+
+            return res;
+        }
+
     }
 }

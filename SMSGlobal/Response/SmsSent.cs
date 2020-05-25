@@ -8,6 +8,10 @@ namespace SMSGlobal.SMS.Response
     /// </summary>
     public class SmsSentMessages : Response
     {
+        public int limit { get; set; }
+        public int offset { get; set; }
+        public int total { get; set; }
+
         public SmsSent[] messages { get; set; }
     }
 
