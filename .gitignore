@@ -16,3 +16,5 @@ SMSGlobalTest/obj/Release/netcoreapp3.1/SMSGlobalTest.csprojAssemblyReference.ca
 .vs/
 SMSGlobalTest/obj/
 SMSGlobal/obj/
+SMSGlobalTest/bin/
+SMSGlobal/bin/
