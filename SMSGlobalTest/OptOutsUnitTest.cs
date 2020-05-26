@@ -37,9 +37,9 @@ namespace SMSGlobalTest
                 number = "MOBILE-NUMBER"
             };
 
-            var a = await client.SMS.SMSPostOptOut(new { optouts = payload });
+            var response = await client.SMS.SMSPostOptOut(new { optouts = payload });
 
-            Assert.IsNotNull(a);
+            Assert.IsNotNull(response);
         }
 
         [TestMethod]
@@ -59,9 +59,9 @@ namespace SMSGlobalTest
                 number = "MOBILE-NUMBER"
             };
 
-            var a = await client.SMS.SMSPostOptOutValidate(new { optouts = payload });
+            var response = await client.SMS.SMSPostOptOutValidate(new { optouts = payload });
 
-            Assert.IsNotNull(a);
+            Assert.IsNotNull(response);
         }
 
         [TestMethod]
@@ -70,8 +70,8 @@ namespace SMSGlobalTest
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 
             string number = "MOBILE-NUMBER";
-            var a = await client.SMS.SMSDeleteOptOut(number);
-            Assert.AreEqual(a, 204);
+            var response = await client.SMS.SMSDeleteOptOut(number);
+            Assert.AreEqual(response, 204);
         }
 
     }
