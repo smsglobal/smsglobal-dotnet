@@ -128,6 +128,52 @@ namespace SMSGlobal.SMS.Transport
         }
 
         /// <summary>
+        /// Gets opt out number.
+        /// </summary>
+        /// <param name="filter">The rest api query string result filter.</param>
+        /// <returns>Task</returns>
+        public async Task<Response.OptOutNumbers> getOptOuts(string filter = "")
+        {
+            HttpResponseMessage response = await Request("opt-outs", null, filter);
+
+            return await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+        }
+
+        /// <summary>
+        /// Opt out mobile number.
+        /// </summary>
+        /// <returns>Task</returns>
+        public async Task<Response.OptOutNumbers> sendOptOut(Object payload)
+        {
+            HttpResponseMessage response = await Request("opt-outs", payload);
+
+            return await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+        }
+
+        /// <summary>
+        /// Opt out validate mobile numbers.
+        /// </summary>
+        /// <returns>Task</returns>
+        public async Task<Response.OptOutNumbers> sendOptOutValidate(Object payload)
+        {
+            HttpResponseMessage response = await Request("opt-outs/validate", payload);
+
+            return await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+        }
+
+        /// <summary>
+        /// Opt in a mobile number
+        /// </summary>
+        /// <param name="filter">The rest api query string result filter.</param>
+        /// <returns>Task</returns>
+        public async Task<int> deleteOptOut(string number = "")
+        {
+            HttpResponseMessage response = await Request("opt-outs", null, null, number, "delete");
+
+            return (int)response.StatusCode;
+        }
+
+        /// <summary>
         /// Requests information from the rest api.
         /// </summary>
         /// <param name="path">The rest api path.</param>
@@ -166,8 +212,6 @@ namespace SMSGlobal.SMS.Transport
                 else
                 {
                     response = null == payload ? await client.GetAsync(uri.PathAndQuery) : await client.PostAsync(uri.PathAndQuery, new StringContent(json, Encoding.UTF8, "application/json"));
-
-                    response.EnsureSuccessStatusCode();
 
                     return response;
                 }

@@ -16,8 +16,8 @@ namespace SMSGlobalTest
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 
             string filter = "limit=1";
-            var a = await client.SMS.SMSGetIncoming(filter);
-            Assert.IsNotNull(a.messages[0].id);
+            var response = await client.SMS.SMSGetIncoming(filter);
+            Assert.IsNotNull(response.messages[0].id);
         }
 
         [TestMethod]
@@ -25,9 +25,9 @@ namespace SMSGlobalTest
         {
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
             
-            string id = "123457";
-            var a = await client.SMS.SMSDeleteIncoming(id);
-            Assert.AreEqual(a, 204);
+            string id = "INCOMING-NUMBER";
+            var response = await client.SMS.SMSDeleteIncoming(id);
+            Assert.AreEqual(response, 204);
         }
 
         [TestMethod]
@@ -35,9 +35,9 @@ namespace SMSGlobalTest
         {
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 
-            string id = "457337691";
-            var a = await client.SMS.SMSGetIncomingById(id);
-            Assert.IsNotNull(a);
+            string id = "SMSGLOBAL-OUTGOING-ID";
+            var response = await client.SMS.SMSGetIncomingById(id);
+            Assert.IsNotNull(response);
         }
 
     }

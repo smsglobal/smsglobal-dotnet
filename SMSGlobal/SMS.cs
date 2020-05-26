@@ -62,7 +62,7 @@ namespace SMSGlobal.api
         {
             SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
 
-            // get all messages using filter
+            // get all incoming messages using filter
             var res = await rest.getSmsIncoming(filter);
 
             return res;
@@ -72,7 +72,7 @@ namespace SMSGlobal.api
         {
             SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
 
-            // delete a message
+            // delete an incoming message
             var res = await rest.deleteSmsIncoming(id);
 
             return res;
@@ -82,8 +82,48 @@ namespace SMSGlobal.api
         {
             SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
 
-            // gets a message
+            // gets an incoming message
             var res = await rest.getSmsIncomingById(id);
+
+            return res;
+        }
+
+        public async System.Threading.Tasks.Task<OptOutNumbers> SMSGetOptOuts(string filter)
+        {
+            SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
+
+            // get all opt out numbers using filter
+            var res = await rest.getOptOuts(filter);
+
+            return res;
+        }
+
+        public async System.Threading.Tasks.Task<OptOutNumbers> SMSPostOptOut(Object payload)
+        {
+            SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
+
+            // post an opt out mobile number
+            var res = await rest.sendOptOut(payload);
+
+            return res;
+        }
+
+        public async System.Threading.Tasks.Task<OptOutNumbers> SMSPostOptOutValidate(Object payload)
+        {
+            SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
+
+            // validate opt out
+            var res = await rest.sendOptOutValidate(payload);
+
+            return res;
+        }
+
+        public async System.Threading.Tasks.Task<int> SMSDeleteOptOut(string number)
+        {
+            SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
+
+            // opt out mobile number
+            var res = await rest.deleteOptOut(number);
 
             return res;
         }

@@ -5,7 +5,7 @@
 namespace SMSGlobal.SMS.Response
 {
     /// <summary>
-    /// The sms sent messages response object
+    /// The sms income messages response object
     /// </summary>
     public class SmsIncoming : Response
     {
@@ -29,7 +29,7 @@ namespace SMSGlobal.SMS.Response
     }
 
     /// <summary>
-    /// The sms sent response object
+    /// The sms income response object
     /// </summary>
     public class Campaign : Response
     {
