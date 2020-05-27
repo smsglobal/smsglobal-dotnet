@@ -26,6 +26,10 @@ namespace SMSGlobal.SMS.Response
         public int partNumber { get; set; }
 
         public int totalParts { get; set; }
+
+        public int statuscode { get; set; }
+
+        public string statusmessage { get; set; }
     }
 
     /// <summary>

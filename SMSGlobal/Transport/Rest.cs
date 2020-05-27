@@ -3,6 +3,7 @@ using SMSGlobal.api;
 using SMSGlobal.SMS.Response;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
@@ -49,11 +50,20 @@ namespace SMSGlobal.SMS.Transport
         /// </summary>
         /// <param name="filter">The rest api query string result filter.</param>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSent> getSmsId(string id = "")
+        public async Task<Response.SmsSentId> getSmsId(string id = "")
         {
             HttpResponseMessage response = await Request("sms", null, null, id);
 
-            return await response.Content.ReadAsAsync<Response.SmsSent>();
+            SmsSentId sms = new SmsSentId();
+
+            if ((int)response.StatusCode == 200)
+            {
+                sms = await response.Content.ReadAsAsync<Response.SmsSentId>();
+            }
+
+            sms.statuscode = (int)response.StatusCode;
+            sms.statusmessage = response.ReasonPhrase;
+            return sms;
         }
 
         /// <summary>
@@ -77,7 +87,16 @@ namespace SMSGlobal.SMS.Transport
         {
             HttpResponseMessage response = await Request("sms", null, filter);
 
-            return await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+            SmsSentMessages sms = new SmsSentMessages();
+
+            if ((int)response.StatusCode == 200)
+            {
+                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+            }
+
+            sms.statuscode = (int)response.StatusCode;
+            sms.statusmessage = response.ReasonPhrase;
+            return sms;
         }
 
         /// <summary>
@@ -88,7 +107,16 @@ namespace SMSGlobal.SMS.Transport
         {
             HttpResponseMessage response = await Request("sms", payload);
 
-            return await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+            SmsSentMessages sms = new SmsSentMessages();
+
+            if ((int)response.StatusCode == 200)
+            {
+                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+            }
+
+            sms.statuscode = (int)response.StatusCode;
+            sms.statusmessage = response.ReasonPhrase;
+            return sms;
         }
 
         /// <summary>
@@ -99,8 +127,17 @@ namespace SMSGlobal.SMS.Transport
         public async Task<Response.SmsSentMessages> getSmsIncoming(string filter = "")
         {
             HttpResponseMessage response = await Request("sms-incoming", null, filter);
+            SmsSentMessages sms = new SmsSentMessages();
 
-            return await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+            if ((int)response.StatusCode == 200)
+            {
+                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+            }
+
+            sms.statuscode = (int)response.StatusCode;
+            sms.statusmessage = response.ReasonPhrase;
+            return sms;
+
         }
 
         /// <summary>
@@ -123,8 +160,17 @@ namespace SMSGlobal.SMS.Transport
         public async Task<Response.SmsIncoming> getSmsIncomingById(string id = "")
         {
             HttpResponseMessage response = await Request("sms-incoming", null, null, id);
+            SmsIncoming sms = new SmsIncoming();
 
-            return await response.Content.ReadAsAsync<Response.SmsIncoming>();
+            if ((int)response.StatusCode == 200)
+            {
+                sms = await response.Content.ReadAsAsync<Response.SmsIncoming>();
+            }
+
+            sms.statuscode = (int)response.StatusCode;
+            sms.statusmessage = response.ReasonPhrase;
+            return sms;
+
         }
 
         /// <summary>
@@ -135,8 +181,16 @@ namespace SMSGlobal.SMS.Transport
         public async Task<Response.OptOutNumbers> getOptOuts(string filter = "")
         {
             HttpResponseMessage response = await Request("opt-outs", null, filter);
+            OptOutNumbers opt = new OptOutNumbers();
 
-            return await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+            if ((int)response.StatusCode == 200)
+            {
+                opt = await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+            }
+
+            opt.statuscode = (int)response.StatusCode;
+            opt.statusmessage = response.ReasonPhrase;
+            return opt;
         }
 
         /// <summary>
@@ -146,8 +200,17 @@ namespace SMSGlobal.SMS.Transport
         public async Task<Response.OptOutNumbers> sendOptOut(Object payload)
         {
             HttpResponseMessage response = await Request("opt-outs", payload);
+            OptOutNumbers opt = new OptOutNumbers();
 
-            return await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+            if ((int)response.StatusCode == 200)
+            {
+                opt = await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+            }
+
+            opt.statuscode = (int)response.StatusCode;
+            opt.statusmessage = response.ReasonPhrase;
+            return opt;
+
         }
 
         /// <summary>
@@ -157,8 +220,16 @@ namespace SMSGlobal.SMS.Transport
         public async Task<Response.OptOutNumbers> sendOptOutValidate(Object payload)
         {
             HttpResponseMessage response = await Request("opt-outs/validate", payload);
+            OptOutNumbers opt = new OptOutNumbers();
 
-            return await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+            if ((int)response.StatusCode == 200)
+            {
+                opt = await response.Content.ReadAsAsync<Response.OptOutNumbers>();
+            }
+
+            opt.statuscode = (int)response.StatusCode;
+            opt.statusmessage = response.ReasonPhrase;
+            return opt;
         }
 
         /// <summary>
@@ -212,8 +283,6 @@ namespace SMSGlobal.SMS.Transport
                 else
                 {
                     response = null == payload ? await client.GetAsync(uri.PathAndQuery) : await client.PostAsync(uri.PathAndQuery, new StringContent(json, Encoding.UTF8, "application/json"));
-
-                    response.EnsureSuccessStatusCode();
 
                     return response;
                 }

@@ -38,7 +38,7 @@ namespace SMSGlobal.api
             return res;
         }
 
-        public async System.Threading.Tasks.Task<SmsSent> SMSGetId(string id)
+        public async System.Threading.Tasks.Task<SmsSentId> SMSGetId(string id)
         {
             SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
 

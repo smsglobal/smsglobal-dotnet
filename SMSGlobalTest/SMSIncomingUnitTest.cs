@@ -31,7 +31,7 @@ namespace SMSGlobalTest
         }
 
         [TestMethod]
-        public async System.Threading.Tasks.Task TestMethodGetSMSId()
+        public async System.Threading.Tasks.Task TestMethodGetSMSIncomingById()
         {
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 

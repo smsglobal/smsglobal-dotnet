@@ -13,6 +13,10 @@ namespace SMSGlobal.SMS.Response
         public int limit { get; set; }
         public int total { get; set; }
 
+        public int statuscode { get; set; }
+
+        public string statusmessage { get; set; }
+
         public OptOuts[] optouts { get; set; }
 
 
