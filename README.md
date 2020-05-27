@@ -1,5 +1,7 @@
 # SMSGlobal Dotnet
 
+![.NET Core](https://github.com/smsglobal/smsglobal-dotnet/workflows/.NET%20Core/badge.svg)
+
 ## SMSGlobal REST API and Libraries for .NET
 
 This is a SDK for the SMSGlobal REST API. Get an API key from SMSGlobal by signing up and viewing the API key page in the MXT platform. Learn more on [smsglobal.com](https://www.smsglobal.com/)
