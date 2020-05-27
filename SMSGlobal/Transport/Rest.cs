@@ -213,6 +213,8 @@ namespace SMSGlobal.SMS.Transport
                 {
                     response = null == payload ? await client.GetAsync(uri.PathAndQuery) : await client.PostAsync(uri.PathAndQuery, new StringContent(json, Encoding.UTF8, "application/json"));
 
+                    response.EnsureSuccessStatusCode();
+
                     return response;
                 }
                     
