@@ -1,6 +1,6 @@
 # SMSGlobal Dotnet
 
-![.NET Core](https://github.com/smsglobal/smsglobal-dotnet/workflows/.NET%20Core/badge.svg)
+![.build](https://github.com/smsglobal/smsglobal-dotnet/workflows/.NET%20Core/badge.svg)
 
 ## SMSGlobal REST API and Libraries for .NET
 
