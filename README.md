@@ -104,8 +104,6 @@ var response = await client.SMS.SMSSend(new { messages = messages });
 ```
 The response object will contain collection of outgoing message objects.
 
-More info for this end point can be found here. [POST /v2/sms](http://api.smsglobal.com/v2/doc#post--v2-sms)
-
 ### Receive all Messages
 
 This can be used to view list of all outgoing messages. The messages returned can be filtered based on different condition.
@@ -117,8 +115,6 @@ string filter = "limit=1";
 var response = await client.SMS.SMSGetAll(filter);
 ```
 The response object will contain all the sms sent messages objects.
-
-More info for this end point can be found here. [GET /v2/sms](http://api.smsglobal.com/v2/doc#get--v2-sms)
 
 ### Get Message By Id
 
@@ -132,8 +128,6 @@ var response = await client.SMS.SMSGetId(id);
 ```
 The response object will contain details of the message.
 
-More info for this end point can be found here. [GET /v2/sms/{id}](http://api.smsglobal.com/v2/doc#get--v2-sms-{id})
-
 ### Delete Message
 
 This can be used to delete outgoing message.
@@ -145,8 +139,6 @@ string id = "SMSGLOBAL-OUTGOING-ID";
 var response = await client.SMS.SMSDeleteId(id);
 ```
 The reponse of this request will return status code where 204 means message deleted successfully.
-
-More info for this end point can be found here. [DELETE /v2/sms/{id}](http://api.smsglobal.com/v2/doc#delete--v2-sms-{id})
 
 ### Get All Incoming Messages
 
@@ -160,8 +152,6 @@ var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-K
 ```
 The response object will contain all the incoming messages objects.
 
-More info for this end point can be found here. [GET /v2/sms-incoming](http://api.smsglobal.com/v2/doc#get--v2-sms-incoming)
-
 ### Get Incoming Message By Id
 
 This can be used to view details of an incoming message.
@@ -173,8 +163,6 @@ string id = "INCOMING-NUMBER";
 var response = await client.SMS.SMSDeleteIncoming(id);
 ```
 The response object will contain details of the incoming message.
-
-More info for this end point can be found here. [GET /v2/sms-incoming/{id}](http://api.smsglobal.com/v2/doc#get--v2-sms-incoming-{id})
 
 ### Delete Incoming Message
 
@@ -188,8 +176,6 @@ var response = await client.SMS.SMSGetIncomingById(id);
 ```
 The reponse of this request will return status code where 204 means message deleted successfully.
 
-More info for this end point can be found here. [DELETE /v2/sms-incoming/{id}](http://api.smsglobal.com/v2/doc#delete--v2-sms-incoming-{id})
-
 ### Get All Opted Out Numbers
 
 This can be used to get all opted out numbers. The numbers returned can be filtered based on different condition.
@@ -201,8 +187,6 @@ string filter = "";
 var response = await client.SMS.SMSGetOptOuts(filter);
 ```
 The response object will contain all the opted number objects.
-
-More info for this end point can be found here. [GET /v2/opt-outs](http://api.smsglobal.com/v2/doc#get--v2-opt-outs)
 
 ### Opt Out Number
 
@@ -225,8 +209,6 @@ var response = await client.SMS.SMSPostOptOut(new { optouts = payload });
 ```
 The response object will contain collection of Opt out number object. Optout object consist of number and status(exist, valid, and invalid) properties.
 
-More info for this end point can be found here. [POST /v2/opt-outs](http://api.smsglobal.com/v2/doc#post--v2-opt-outs)
-
 ### Validate Opt Out
 
 This can be used to validate mobile numbers for opt-out.
@@ -248,8 +230,6 @@ var response = await client.SMS.SMSPostOptOutValidate(new { optouts = payload })
 ```
 The response object will contain collection of Opt out number object. Optout object consist of number and status(exist, valid, and invalid) properties.
 
-More info for this end point can be found here. [POST /v2/opt-outs/validate](http://api.smsglobal.com/v2/doc#post--v2-opt-outs-validate)
-
 ### Opt In Number
 
 This can be used to opt in a number.
@@ -261,9 +241,6 @@ string number = "MOBILE-NUMBER";
 var response = await client.SMS.SMSDeleteOptOut(number);
 ```
 The reponse of this request will return status code where 204 means opted-in successfully.
-
-More info for this end point can be found here. [DELETE /v2/opt-outs/{number}](http://api.smsglobal.com/v2/doc#delete--v2-opt-outs-{number})
-
 
 ## Getting help
 
