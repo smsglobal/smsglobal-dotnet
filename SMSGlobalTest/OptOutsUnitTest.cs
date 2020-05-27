@@ -17,7 +17,7 @@ namespace SMSGlobalTest
 
             string filter = "";
             var response = await client.SMS.SMSGetOptOuts(filter);
-            Assert.IsNotNull(response.total);
+            Assert.IsNotNull(response);
         }
 
         [TestMethod]

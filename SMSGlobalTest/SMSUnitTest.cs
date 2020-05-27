@@ -22,7 +22,7 @@ namespace SMSGlobalTest
                 message = "This is a test message"
             });
 
-            Assert.IsNotNull(response.messages[0].outgoing_id);
+            Assert.IsNotNull(response);
         }
 
         [TestMethod]
@@ -32,7 +32,7 @@ namespace SMSGlobalTest
 
             string filter = "limit=1";
             var response = await client.SMS.SMSGetAll(filter);
-            Assert.IsNotNull(response.messages[0].id);
+            Assert.IsNotNull(response);
         }
 
         [TestMethod]

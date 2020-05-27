@@ -17,7 +17,7 @@ namespace SMSGlobalTest
 
             string filter = "limit=1";
             var response = await client.SMS.SMSGetIncoming(filter);
-            Assert.IsNotNull(response.messages[0].id);
+            Assert.IsNotNull(response);
         }
 
         [TestMethod]
@@ -27,7 +27,7 @@ namespace SMSGlobalTest
             
             string id = "INCOMING-NUMBER";
             var response = await client.SMS.SMSDeleteIncoming(id);
-            Assert.AreEqual(response, 204);
+            Assert.IsNotNull(response);
         }
 
         [TestMethod]
