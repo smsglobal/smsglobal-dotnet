@@ -1,5 +1,4 @@
 name: .NET Core
-language: csharp
 
 on:
   push:
