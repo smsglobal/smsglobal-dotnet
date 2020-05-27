@@ -261,7 +261,7 @@ var response = await client.SMS.SMSDeleteOptOut(number);
 The reponse of this request will return status code where 204 means opted-in successfully.
 
 More info for this end point can be found here. [DELETE /v2/opt-outs/{number}](http://api.smsglobal.com/v2/doc#delete--v2-opt-outs-{number})
-```
+
 
 ## Getting help
 
