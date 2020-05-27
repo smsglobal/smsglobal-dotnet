@@ -52,7 +52,7 @@ namespace SMSGlobalTest
 
             string id = "SMSGLOBAL-OUTGOING-ID";
             var response = await client.SMS.SMSDeleteId(id);
-            Assert.AreEqual(response, 204);
+            Assert.IsNotNull(response);
         }
     }
 }

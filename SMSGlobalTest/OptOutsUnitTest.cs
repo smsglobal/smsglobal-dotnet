@@ -71,7 +71,7 @@ namespace SMSGlobalTest
 
             string number = "MOBILE-NUMBER";
             var response = await client.SMS.SMSDeleteOptOut(number);
-            Assert.AreEqual(response, 204);
+            Assert.IsNotNull(response);
         }
 
     }
