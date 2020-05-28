@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <OutputType>Library</OutputType>
+    <PackageId>SMSGlobal</PackageId>
+    <Authors>SMSGlobal</Authors>
+    <Product>SMSGlobal</Product>
   </PropertyGroup>
 
   <ItemGroup>
