@@ -31,6 +31,13 @@ var response = await client.SMS.SMSSend(new
     message = "This is a test message"
 });
 ```
+The response object will contain the result object and also two keys fields:
+
+1. statuscode: This code can be used to determine the outcome of the call. Based on data passed you can get different status codes such as 400, 404, 200 etc.
+
+2. statusmessages: This message can be used to determine the outcome of the call. Each status code has a status message linked. 
+
+Each api call have different status codes and messages, more info about status codes can be found here. [Rest API](https://www.smsglobal.com/rest-api/)
 
 ### Configuration Reference
 
