@@ -26,6 +26,26 @@ namespace SMSGlobalTest
         }
 
         [TestMethod]
+        public async System.Threading.Tasks.Task TestMethodSendBulkDestinationsSMS()
+        {
+            var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
+
+            string[] destinations = new string[2];
+
+            destinations[0] = "DESTINATION-NUMBER-1";
+            destinations[1] = "DESTINATION-NUMBER-2";
+
+            var response = await client.SMS.SMSSend(new
+            {
+                origin = "Test",
+                destinations = destinations,
+                message = "This is a test message"
+            });
+
+            Assert.IsNotNull(response);
+        }
+
+        [TestMethod]
         public async System.Threading.Tasks.Task TestMethodGetSMS()
         {
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
