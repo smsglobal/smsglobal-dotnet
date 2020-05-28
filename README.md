@@ -111,6 +111,56 @@ var response = await client.SMS.SMSSend(new { messages = messages });
 ```
 The response object will contain collection of outgoing message objects.
 
+This can be used to send to multiple destinations.
+
+```csharp
+string[] destinations = new string[2];
+
+destinations[0] = "DESTINATION-NUMBER-1";
+destinations[1] = "DESTINATION-NUMBER-2";
+
+var response = await client.SMS.SMSSend(new
+{
+   origin = "Test",
+   destinations = destinations,
+   message = "This is a test message"
+});
+```
+The response object will contain collection of outgoing message objects.
+
+Same way we can send mutiple messages of array having multiple destinations array in it.
+
+```csharp
+
+Object[] messages = new Object[2];
+
+string[] destinations1 = new string[2];
+
+destinations[0] = "DESTINATION-NUMBER-1";
+destinations[1] = "DESTINATION-NUMBER-2";
+
+string[] destinations2 = new string[2];
+
+destinations[0] = "DESTINATION-NUMBER-3";
+destinations[1] = "DESTINATION-NUMBER-4";
+
+messages[0] = new {
+origin = "Test",
+destinations = destinations1,
+message = "This is a test message"
+};
+
+messages[1] = new {
+origin = "Test",
+destinations = destinations2,
+message = "This is a test message"
+};
+
+var response = await client.SMS.SMSSend(new { messages = messages });
+
+```
+The response object will contain collection of outgoing message objects.
+
 ### Receive all Messages
 
 This can be used to view list of all outgoing messages. The messages returned can be filtered based on different condition.
