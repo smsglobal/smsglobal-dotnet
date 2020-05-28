@@ -41,7 +41,7 @@ SMSGLOBAL-SECRET-KEY | Your API secret from the [MXT Dashboard](https://mxt.smsg
 
 ## Examples
 
-The following examples show how to:
+The following examples show how to: 
 
 ### SMS
 
