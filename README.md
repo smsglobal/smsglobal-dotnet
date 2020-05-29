@@ -303,4 +303,4 @@ The reponse of this request will return status code where 204 means opted-in suc
 
 View the [REST API](https://www.smsglobal.com/rest-api/) documentation for a list of available resources.
 
-For more queries contact [smsglobal.com](https://www.smsglobal.com/contact/)
+For more queries contact [smsglobal.com](https://www.smsglobal.com/contact/) 
