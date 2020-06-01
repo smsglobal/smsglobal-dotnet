@@ -29,6 +29,11 @@ If you are building with the .NET Core command line tools, then you can run the 
 
 ## Configuration
 
+First import the package by using SMSGlobal api:
+
+```csharp
+using SMSGlobal.api;
+```
 To setup the configuration of the SMSGlobal client you have to create following object with Rest and Secret API keys.
 
 ```csharp
