@@ -26,6 +26,14 @@ From within Visual Studio, you can use the NuGet GUI to search for and install t
 If you are building with the .NET Core command line tools, then you can run the following command from within your project directory:
 
     dotnet add package SMSGlobal
+    
+### Azure functions
+
+From within Visual Studio while creating azure function app, you can use the NuGet GUI to search for and install the SMSGlobal NuGet package. Or, as a shortcut, simply type the following command into the Package Manager Console:
+
+    Install-Package SMSGlobal
+    
+More information can be found here. [Nuget Client Tools](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools)
 
 ## Configuration
 
