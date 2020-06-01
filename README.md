@@ -15,6 +15,18 @@ This library supports .NET applications written in C#, VB.Net, and F# that utili
 
 The best and easiest way to add the SMSGlobal libraries to your .NET project is to use the NuGet package manager.
 
+### With Visual Studio IDE
+
+From within Visual Studio, you can use the NuGet GUI to search for and install the SMSGlobal NuGet package. Or, as a shortcut, simply type the following command into the Package Manager Console:
+
+    Install-Package SMSGlobal
+
+### With .NET Core Command Line Tools
+
+If you are building with the .NET Core command line tools, then you can run the following command from within your project directory:
+
+    dotnet add package SMSGlobal
+
 ## Configuration
 
 To setup the configuration of the SMSGlobal client you have to create following object with Rest and Secret API keys.
