@@ -69,8 +69,8 @@ Each api call have different status codes and messages, more info about status c
 
 Key | Description
 ----|------------
-SMSGLOBAL-API-KEY | Your API key from the [MXT Dashboard](https://mxt.smsglobal.com/integrations)
-SMSGLOBAL-SECRET-KEY | Your API secret from the [MXT Dashboard](https://mxt.smsglobal.com/integrations)
+SMSGLOBAL-API-KEY | Your REST API key from the [MXT](https://mxt.smsglobal.com/integrations)
+SMSGLOBAL-SECRET-KEY | Your REST API secret from the [MXT](https://mxt.smsglobal.com/integrations)
 
 ## Examples
 
