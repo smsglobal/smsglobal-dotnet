@@ -20,4 +20,9 @@ namespace SMSGlobal.SMS.Response
             return new JavaScriptSerializer().Serialize(this);
         }
     }
+
+    class VersionsResponse
+    {
+        public string[] Versions { get; set; }
+    }
 }

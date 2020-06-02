@@ -4,6 +4,7 @@ using SMSGlobal.SMS.Response;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
@@ -269,6 +270,16 @@ namespace SMSGlobal.SMS.Transport
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("MAC", credentials);
+
+                // Get latest Nuget Package version.
+                var packageName = "SMSGlobal";
+                var url = $"https://api.nuget.org/v3-flatcontainer/{packageName}/index.json";
+                var httpClient = new HttpClient();
+                var responseNuget = await httpClient.GetAsync(url);
+                var versionsResponse = await responseNuget.Content.ReadAsAsync<VersionsResponse>();
+                var lastVersion = versionsResponse.Versions[^1]; //(length-1)
+
+                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "SMSGlobal-Integrations/"+ lastVersion + ", DotNetSDK/" + lastVersion);
 
                 var json = JsonConvert.SerializeObject(payload);
 
