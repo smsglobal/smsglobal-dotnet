@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SMSGlobal.api;
-using SMSGlobal.SMS.Response;
+using SMSGlobal.Response;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -51,15 +51,15 @@ namespace SMSGlobal.SMS.Transport
         /// </summary>
         /// <param name="filter">The rest api query string result filter.</param>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSentId> getSmsId(string id = "")
+        public async Task<Response.SMSId> getSmsId(string id = "")
         {
             HttpResponseMessage response = await Request("sms", null, null, id);
 
-            SmsSentId sms = new SmsSentId();
+            SMSId sms = new SMSId();
 
             if ((int)response.StatusCode == 200)
             {
-                sms = await response.Content.ReadAsAsync<Response.SmsSentId>();
+                sms = await response.Content.ReadAsAsync<Response.SMSId>();
             }
 
             sms.statuscode = (int)response.StatusCode;
@@ -84,15 +84,15 @@ namespace SMSGlobal.SMS.Transport
         /// </summary>
         /// <param name="filter">The rest api query string result filter.</param>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSentMessages> getSms(string filter = "")
+        public async Task<Response.SMS> getSms(string filter = "")
         {
             HttpResponseMessage response = await Request("sms", null, filter);
 
-            SmsSentMessages sms = new SmsSentMessages();
+            Response.SMS sms = new Response.SMS();
 
             if ((int)response.StatusCode == 200)
             {
-                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+                sms = await response.Content.ReadAsAsync<Response.SMS>();
             }
 
             sms.statuscode = (int)response.StatusCode;
@@ -104,15 +104,15 @@ namespace SMSGlobal.SMS.Transport
         /// Sends an sms message.
         /// </summary>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSentMessages> sendSms(Object payload)
+        public async Task<Response.SMS> sendSms(Object payload)
         {
             HttpResponseMessage response = await Request("sms", payload);
 
-            SmsSentMessages sms = new SmsSentMessages();
+            Response.SMS sms = new Response.SMS();
 
             if ((int)response.StatusCode == 200)
             {
-                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+                sms = await response.Content.ReadAsAsync<Response.SMS>();
             }
 
             sms.statuscode = (int)response.StatusCode;
@@ -125,14 +125,14 @@ namespace SMSGlobal.SMS.Transport
         /// </summary>
         /// <param name="filter">The rest api query string result filter.</param>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSentMessages> getSmsIncoming(string filter = "")
+        public async Task<Response.SMS> getSmsIncoming(string filter = "")
         {
             HttpResponseMessage response = await Request("sms-incoming", null, filter);
-            SmsSentMessages sms = new SmsSentMessages();
+            Response.SMS sms = new Response.SMS();
 
             if ((int)response.StatusCode == 200)
             {
-                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+                sms = await response.Content.ReadAsAsync<Response.SMS>();
             }
 
             sms.statuscode = (int)response.StatusCode;

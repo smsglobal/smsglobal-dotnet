@@ -4,7 +4,7 @@
 /// <summary>
 /// The response namespace.
 /// </summary>
-namespace SMSGlobal.SMS.Response
+namespace SMSGlobal.Response
 {
     /// <summary>
     /// The response class.

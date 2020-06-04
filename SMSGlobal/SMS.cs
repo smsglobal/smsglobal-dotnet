@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SMSGlobal.SMS.Response;
+using SMSGlobal.Response;
 using System;
 using System.Configuration;
 using System.Net.Http;
@@ -17,7 +17,7 @@ namespace SMSGlobal.api
             Credentials = creds;
         }
 
-        public async System.Threading.Tasks.Task<SmsSentMessages> SMSSend(Object payload)
+        public async System.Threading.Tasks.Task<SMSGlobal.Response.SMS> SMSSend(Object payload)
         {
             SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
 
@@ -28,7 +28,7 @@ namespace SMSGlobal.api
         }
 
 
-        public async System.Threading.Tasks.Task<SmsSentMessages> SMSGetAll(string filter)
+        public async System.Threading.Tasks.Task<SMSGlobal.Response.SMS> SMSGetAll(string filter)
         {
             SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
 
@@ -38,7 +38,7 @@ namespace SMSGlobal.api
             return res;
         }
 
-        public async System.Threading.Tasks.Task<SmsSentId> SMSGetId(string id)
+        public async System.Threading.Tasks.Task<SMSId> SMSGetId(string id)
         {
             SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
 
@@ -58,7 +58,7 @@ namespace SMSGlobal.api
             return res;
         }
 
-        public async System.Threading.Tasks.Task<SmsSentMessages> SMSGetIncoming(string filter)
+        public async System.Threading.Tasks.Task<SMSGlobal.Response.SMS> SMSGetIncoming(string filter)
         {
             SMSGlobal.SMS.Transport.Rest rest = new SMSGlobal.SMS.Transport.Rest(Credentials);
 

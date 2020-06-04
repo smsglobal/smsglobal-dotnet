@@ -1,4 +1,4 @@
-﻿using SMSGlobal.SMS.Response;
+﻿using SMSGlobal.Response;
 using System;
 using System.Configuration;
 using System.Net.Http;
