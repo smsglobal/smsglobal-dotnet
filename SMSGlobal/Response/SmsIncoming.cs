@@ -2,7 +2,7 @@
 /// <summary>
 /// The response namespace.
 /// </summary>
-namespace SMSGlobal.SMS.Response
+namespace SMSGlobal.Response
 {
     /// <summary>
     /// The sms income messages response object

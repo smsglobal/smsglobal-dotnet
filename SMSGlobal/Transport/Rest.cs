@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SMSGlobal.api;
-using SMSGlobal.SMS.Response;
+using SMSGlobal.Response;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
@@ -25,7 +22,7 @@ namespace SMSGlobal.SMS.Transport
         public string version { get; set; }
         public string key { get; set; }
         public string secret { get; set; }
-        
+
         public Rest(Credentials _credentials)
         {
             host = _credentials.host;
@@ -51,15 +48,15 @@ namespace SMSGlobal.SMS.Transport
         /// </summary>
         /// <param name="filter">The rest api query string result filter.</param>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSentId> getSmsId(string id = "")
+        public async Task<Response.SMSId> getSmsId(string id = "")
         {
             HttpResponseMessage response = await Request("sms", null, null, id);
 
-            SmsSentId sms = new SmsSentId();
+            SMSId sms = new SMSId();
 
             if ((int)response.StatusCode == 200)
             {
-                sms = await response.Content.ReadAsAsync<Response.SmsSentId>();
+                sms = await response.Content.ReadAsAsync<Response.SMSId>();
             }
 
             sms.statuscode = (int)response.StatusCode;
@@ -84,15 +81,15 @@ namespace SMSGlobal.SMS.Transport
         /// </summary>
         /// <param name="filter">The rest api query string result filter.</param>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSentMessages> getSms(string filter = "")
+        public async Task<Response.SMS> getSms(string filter = "")
         {
             HttpResponseMessage response = await Request("sms", null, filter);
 
-            SmsSentMessages sms = new SmsSentMessages();
+            Response.SMS sms = new Response.SMS();
 
             if ((int)response.StatusCode == 200)
             {
-                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+                sms = await response.Content.ReadAsAsync<Response.SMS>();
             }
 
             sms.statuscode = (int)response.StatusCode;
@@ -104,15 +101,15 @@ namespace SMSGlobal.SMS.Transport
         /// Sends an sms message.
         /// </summary>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSentMessages> sendSms(Object payload)
+        public async Task<Response.SMS> sendSms(Object payload)
         {
             HttpResponseMessage response = await Request("sms", payload);
 
-            SmsSentMessages sms = new SmsSentMessages();
+            Response.SMS sms = new Response.SMS();
 
             if ((int)response.StatusCode == 200)
             {
-                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+                sms = await response.Content.ReadAsAsync<Response.SMS>();
             }
 
             sms.statuscode = (int)response.StatusCode;
@@ -125,14 +122,14 @@ namespace SMSGlobal.SMS.Transport
         /// </summary>
         /// <param name="filter">The rest api query string result filter.</param>
         /// <returns>Task</returns>
-        public async Task<Response.SmsSentMessages> getSmsIncoming(string filter = "")
+        public async Task<Response.SMS> getSmsIncoming(string filter = "")
         {
             HttpResponseMessage response = await Request("sms-incoming", null, filter);
-            SmsSentMessages sms = new SmsSentMessages();
+            Response.SMS sms = new Response.SMS();
 
             if ((int)response.StatusCode == 200)
             {
-                sms = await response.Content.ReadAsAsync<Response.SmsSentMessages>();
+                sms = await response.Content.ReadAsAsync<Response.SMS>();
             }
 
             sms.statuscode = (int)response.StatusCode;
@@ -265,7 +262,7 @@ namespace SMSGlobal.SMS.Transport
                 {
                     credentials = Credentials(path, null == payload ? "GET" : "POST", filter, smsid);
                 }
-                
+
                 client.BaseAddress = new Uri(string.Format("{0}://{1}", uri.Scheme, uri.Host));
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -279,7 +276,7 @@ namespace SMSGlobal.SMS.Transport
                 var versionsResponse = await responseNuget.Content.ReadAsAsync<VersionsResponse>();
                 var lastVersion = versionsResponse.Versions[^1]; //(length-1)
 
-                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "SMSGlobal-Integrations/"+ lastVersion + ", DotNetSDK/" + lastVersion);
+                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "SMSGlobal-Integrations/" + lastVersion + ", DotNetSDK/" + lastVersion);
 
                 var json = JsonConvert.SerializeObject(payload);
 
@@ -297,7 +294,7 @@ namespace SMSGlobal.SMS.Transport
 
                     return response;
                 }
-                    
+
             }
         }
 

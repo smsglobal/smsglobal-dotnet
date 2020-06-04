@@ -1,9 +1,4 @@
-﻿using SMSGlobal.SMS.Response;
-using System;
-using System.Configuration;
-using System.Net.Http;
-
-namespace SMSGlobal.api
+﻿namespace SMSGlobal.api
 {
     public class Client
     {

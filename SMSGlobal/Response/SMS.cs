@@ -1,12 +1,12 @@
 ﻿/// <summary>
 /// The response namespace.
 /// </summary>
-namespace SMSGlobal.SMS.Response
+namespace SMSGlobal.Response
 {
     /// <summary>
     /// The sms sent messages response object
     /// </summary>
-    public class SmsSentMessages : Response
+    public class SMS : Response
     {
         public int limit { get; set; }
         public int offset { get; set; }
@@ -16,13 +16,13 @@ namespace SMSGlobal.SMS.Response
 
         public string statusmessage { get; set; }
 
-        public SmsSent[] messages { get; set; }
+        public SMSMessages[] messages { get; set; }
     }
 
     /// <summary>
     /// The sms sent response object
     /// </summary>
-    public class SmsSent : Response
+    public class SMSMessages : Response
     {
         public string id { get; set; }
         public string outgoing_id { get; set; }
@@ -33,7 +33,7 @@ namespace SMSGlobal.SMS.Response
 
     }
 
-    public class SmsSentId : Response
+    public class SMSId : Response
     {
         public string id { get; set; }
         public string outgoing_id { get; set; }

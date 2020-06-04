@@ -6,12 +6,12 @@
     <PackageId>SMSGlobal</PackageId>
     <Authors>SMSGlobal</Authors>
     <Product>SMSGlobal</Product>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Description>Official C#/.NET wrapper for the SMSGlobal API</Description>
     <Copyright>SMSGlobal</Copyright>
-    <PackageIcon>2268128.jpeg</PackageIcon>
+    <PackageIcon>SMSGlobal.png</PackageIcon>
     <PackageProjectUrl>https://github.com/smsglobal/smsglobal-dotnet</PackageProjectUrl>
-    <PackageReleaseNotes>* First official SMSGlobal Rest API functionality.</PackageReleaseNotes>
+    <PackageReleaseNotes>* Official SMSGlobal Rest API functionality.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +23,10 @@
 
   <ItemGroup>
     <None Include="assets/2268128.jpeg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="assets\SMSGlobal.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

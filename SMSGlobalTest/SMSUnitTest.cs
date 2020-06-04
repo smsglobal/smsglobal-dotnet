@@ -1,8 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json.Linq;
 using SMSGlobal.api;
-using System;
-using System.Net;
 
 namespace SMSGlobalTest
 {
@@ -13,7 +10,7 @@ namespace SMSGlobalTest
         [TestMethod]
         public async System.Threading.Tasks.Task TestMethodSendSMS()
         {
-             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
+            var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 
             var response = await client.SMS.SMSSend(new
             {
