@@ -1,5 +1,4 @@
-﻿using System;
-/// <summary>
+﻿/// <summary>
 /// The response namespace.
 /// </summary>
 namespace SMSGlobal.Response

@@ -1,8 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json.Linq;
 using SMSGlobal.api;
 using System;
-using System.Net;
 
 namespace SMSGlobalTest
 {

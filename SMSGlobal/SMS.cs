@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SMSGlobal.Response;
+﻿using SMSGlobal.Response;
 using System;
-using System.Configuration;
-using System.Net.Http;
 
 
 namespace SMSGlobal.api

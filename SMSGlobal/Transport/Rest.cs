@@ -2,9 +2,6 @@
 using SMSGlobal.api;
 using SMSGlobal.Response;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
@@ -25,7 +22,7 @@ namespace SMSGlobal.SMS.Transport
         public string version { get; set; }
         public string key { get; set; }
         public string secret { get; set; }
-        
+
         public Rest(Credentials _credentials)
         {
             host = _credentials.host;
@@ -265,7 +262,7 @@ namespace SMSGlobal.SMS.Transport
                 {
                     credentials = Credentials(path, null == payload ? "GET" : "POST", filter, smsid);
                 }
-                
+
                 client.BaseAddress = new Uri(string.Format("{0}://{1}", uri.Scheme, uri.Host));
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -279,7 +276,7 @@ namespace SMSGlobal.SMS.Transport
                 var versionsResponse = await responseNuget.Content.ReadAsAsync<VersionsResponse>();
                 var lastVersion = versionsResponse.Versions[^1]; //(length-1)
 
-                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "SMSGlobal-Integrations/"+ lastVersion + ", DotNetSDK/" + lastVersion);
+                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "SMSGlobal-Integrations/" + lastVersion + ", DotNetSDK/" + lastVersion);
 
                 var json = JsonConvert.SerializeObject(payload);
 
@@ -297,7 +294,7 @@ namespace SMSGlobal.SMS.Transport
 
                     return response;
                 }
-                    
+
             }
         }
 
