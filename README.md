@@ -9,7 +9,7 @@ This is a SDK for the SMSGlobal REST API. Get an API key from SMSGlobal by signi
 
 ## Supported .NET versions
 
-This library supports .NET applications written in C#, VB.Net, and F# that utilize .NET Framework 3.5 or above or any [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) of .NET Core (.NET Standard v1.4).
+This library supports .NET applications written in C#, VB.Net, and F# that utilize .NET Standard 2.1 which supports .NET Core 3.0 and unavailable for .NET Framework. [supported version](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
 
 ## Installation
 
