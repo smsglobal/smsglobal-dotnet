@@ -5,7 +5,9 @@
 
 ## SMSGlobal REST API and Libraries for .NET
 
-This is a SDK for the SMSGlobal REST API. Get an API key from SMSGlobal by signing up and viewing the API key page in the MXT platform. Learn more on [smsglobal.com](https://www.smsglobal.com/)
+This is an SDK for SMSGlobal’s REST API that supports .NET applications written in C#, VB.Net, and F# to enable SMS and opt out functionality.
+
+Sign up for a [free SMSGlobal account](https://www.smsglobal.com/mxt-sign-up/?utm_source=dev&utm_medium=github&utm_campaign=dotnet_sdk) today and get your API Key from our advanced SMS platform, MXT. Plus, enjoy unlimited free developer sandbox testing to try out your API in full!
 
 ## Supported .NET versions
 
@@ -63,14 +65,14 @@ The response object will contain the result object and also two keys fields:
 
 2. statusmessages: This message can be used to determine the outcome of the call. Each status code has a status message linked. 
 
-Each api call have different status codes and messages, more info about status codes can be found here. [Rest API](https://www.smsglobal.com/rest-api/)
+Each api call have different status codes and messages, more info about status codes can be found here. [Rest API](https://www.smsglobal.com/rest-api/?utm_source=dev&utm_medium=github&utm_campaign=dotnet_sdk)
 
 ### Configuration Reference
 
 Key | Description
 ----|------------
-SMSGLOBAL-API-KEY | Your REST API key from the [MXT](https://mxt.smsglobal.com/integrations)
-SMSGLOBAL-SECRET-KEY | Your REST API secret from the [MXT](https://mxt.smsglobal.com/integrations)
+SMSGLOBAL-API-KEY | Your REST API key from the [MXT](https://mxt.smsglobal.com/integrations?utm_source=dev&utm_medium=github&utm_campaign=dotnet_sdk)
+SMSGLOBAL-SECRET-KEY | Your REST API secret from the [MXT](https://mxt.smsglobal.com/integrations?utm_source=dev&utm_medium=github&utm_campaign=dotnet_sdk)
 
 ## Examples
 
@@ -97,7 +99,7 @@ The following examples show how to:
  * [Opt in number](#opt-in-number)
  
 
-More info can be found here. [SMSGlobal Rest API](https://www.smsglobal.com/rest-api/#api-endpoints)
+More info can be found here. [SMSGlobal Rest API](https://www.smsglobal.com/rest-api/?utm_source=dev&utm_medium=github&utm_campaign=dotnet_sdk#api-endpoints)
  
 ### Sending a Message
 
@@ -327,6 +329,6 @@ The reponse of this request will return status code where 204 means opted-in suc
 
 ## Getting help
 
-View the [REST API](https://www.smsglobal.com/rest-api/) documentation for a list of available resources.
+View the [REST API](https://www.smsglobal.com/rest-api/?utm_source=dev&utm_medium=github&utm_campaign=dotnet_sdk) documentation for a list of available resources.
 
-For more queries contact [smsglobal.com](https://www.smsglobal.com/contact/) 
+For any query [contact us](https://www.smsglobal.com/contact/?utm_source=dev&utm_medium=github&utm_campaign=dotnet_sdk) 
