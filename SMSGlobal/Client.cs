@@ -23,8 +23,12 @@
         private void PropagateCredentials()
         {
             SMS = new SMSGlobal.api.SMS(Credentials);
+            OTP = new SMSGlobal.api.OTP(Credentials);
         }
 
         public SMSGlobal.api.SMS SMS { get; private set; }
+
+        public SMSGlobal.api.OTP OTP { get; private set; }
+
     }
 }
