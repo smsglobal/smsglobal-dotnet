@@ -61,7 +61,7 @@ namespace SMSGlobalTest
 
             string requestid = "REQUEST-ID";
             var response = await client.OTP.OTPCancelRequest(requestid);
-            Assert.IsNotNull(response.requestId);
+            Assert.IsNotNull(response);
         }  
        
         [TestMethod]
