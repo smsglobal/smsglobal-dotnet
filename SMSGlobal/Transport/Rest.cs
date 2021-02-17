@@ -4,6 +4,8 @@ using SMSGlobal.Response;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
+using System.Runtime.Versioning;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -243,18 +245,117 @@ namespace SMSGlobal.SMS.Transport
         }
 
         /// <summary>
+        /// Sends an OTP message.
+        /// </summary>
+        public async Task<Response.OTPRespone> sendOTP(Object payload)
+        {
+            HttpResponseMessage response = await Request("otp", payload);
+
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
+        }
+
+        /// <summary>
+        /// Validate OTP by Request Id.
+        /// </summary>
+        public async Task<Response.OTPRespone> OTPValidateRequest(string requestid, Object payload)
+        {
+            HttpResponseMessage response = await Request("otp/requestid", payload, null, requestid, null, "validate");
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
+        }
+
+        /// <summary>
+        /// Validate OTP by Destination Id.
+        /// </summary>
+        public async Task<Response.OTPRespone> OTPValidateDestination(string destinationid, Object payload)
+        {
+            HttpResponseMessage response = await Request("otp", payload, null, destinationid, null, "validate");
+
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
+        }
+
+        /// <summary>
+        /// Cancel OTP by Request Id.
+        /// </summary>
+        public async Task<Response.OTPRespone> OTPCancelRequest(string requestid)
+        {
+            HttpResponseMessage response = await Request("otp/requestid", null, null, requestid, null, "cancel");
+
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
+        }
+
+        /// <summary>
+        /// Cancel OTP by Destination Id.
+        /// </summary>
+        public async Task<Response.OTPRespone> OTPCancelDestination(string destinationid)
+        {
+            HttpResponseMessage response = await Request("otp", null, null, destinationid, null, "cancel");
+
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
+        }
+
+
+        /// <summary>
         /// Requests information from the rest api.
         /// </summary>
         /// <param name="path">The rest api path.</param>
         /// <param name="payload">The rest api method.</param>
         /// <param name="filter">The rest api query string result filter.</param>
         /// <returns>The http response message object.</returns>
-        private async Task<HttpResponseMessage> Request(string path, Object payload = null, string filter = "", string smsid = "", string method = "")
+        private async Task<HttpResponseMessage> Request(string path, Object payload = null, string filter = "", string smsid = "", string method = "", string otprequest = "")
         {
             using (var client = new HttpClient())
             {
                 string credentials = "";
-                if (method == "delete")
+                if (otprequest != "")
+                {
+                    credentials = Credentials(path, "POST", filter, smsid, otprequest);         // OTP is always POST.
+                }
+                else if (method == "delete")
                 {
                     credentials = Credentials(path, "DELETE", filter, smsid);
                 }
@@ -276,13 +377,26 @@ namespace SMSGlobal.SMS.Transport
                 var versionsResponse = await responseNuget.Content.ReadAsAsync<VersionsResponse>();
                 var lastVersion = versionsResponse.Versions[^1]; //(length-1)
 
-                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "SMSGlobal-Integrations/" + lastVersion + ", DotNetSDK/" + lastVersion);
+                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "SMSGlobal-SDK/v2 Version/" + lastVersion + ", DotNet/" + System.Environment.Version + " (" + Environment.OSVersion + ")");
 
                 var json = JsonConvert.SerializeObject(payload);
 
                 HttpResponseMessage response = null;
 
-                if (method == "delete")
+                if (otprequest != "")
+                {
+                    if (payload == null)
+                    {
+                        response = await client.PostAsync(uri.PathAndQuery, new StringContent(""));
+                    }
+                    else
+                    {
+                        response = await client.PostAsync(uri.PathAndQuery, new StringContent(json, Encoding.UTF8, "application/json"));
+                    }
+
+                    return response;
+                }
+                else if (method == "delete")
                 {
                     response = await client.DeleteAsync(uri.PathAndQuery);
 
@@ -304,9 +418,13 @@ namespace SMSGlobal.SMS.Transport
         /// <param name="path">The request path.</param>
         /// <param name="method">The request method.</param>
         /// <returns>The credential string.</returns>
-        private string Credentials(string path, string method = "GET", string filter = "", string smsid = "")
+        private string Credentials(string path, string method = "GET", string filter = "", string smsid = "", string otprequest = "")
         {
-            if (filter != null)
+            if (otprequest != "")
+            {
+                uri = new Uri(string.Format("https://{0}/{1}/{2}/{3}/{4}", host, version, path, smsid, otprequest));
+            }
+            else if (filter != null)
             {
                 uri = new Uri(string.Format("https://{0}/{1}/{2}/?{3}", host, version, path, filter));
             }

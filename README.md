@@ -98,6 +98,12 @@ The following examples show how to:
  * [Validate for opt out](#validate-opt-out)
  * [Opt in number](#opt-in-number)
  
+### OTP
+
+ * [Send OTP](#send-otp)
+ * [Verify OTP](#verify-otp)
+ * [Cancel OTP](#cancel-otp)
+ 
 
 More info can be found here. [SMSGlobal Rest API](https://www.smsglobal.com/rest-api/?utm_source=dev&utm_medium=github&utm_campaign=dotnet_sdk#api-endpoints)
  
@@ -326,6 +332,67 @@ string number = "MOBILE-NUMBER";
 var response = await client.SMS.SMSDeleteOptOut(number);
 ```
 The reponse of this request will return status code where 204 means opted-in successfully.
+
+### Send OTP
+
+This can be used for sending OTP.
+
+```csharp
+var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
+
+var response = await client.OTP.OTPSend(new
+{
+    message = "{*code*} is your SMSGlobal verification code.",
+    destination = "DESTINATION-NUMBER",
+});
+```
+The response object will contain OTP details such as request id, destination number.
+
+### Verify OTP
+
+The OTP code entered by your user can be verified by either using requestId or destination number.
+
+```csharp
+var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
+
+string requestid = "REQUEST-ID";
+string code = "OTP-CODE";
+var response = await client.OTP.OTPValidateRequest(requestid, new
+{
+   code = code,
+});
+```
+
+```csharp
+var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
+
+string destinationid = "DESTINATION-NUMBER";
+string code = "OTP-CODE";
+var response = await client.OTP.OTPValidateDestination(destinationid, new
+{
+   code = code,
+});
+```
+The response object will contain OTP details such as request id, destination number.
+
+### Cancel OTP
+
+The OTP request can be cancelled if an OTP is not expired and verified yet. It can be done by either using requestId or destination number.
+
+```csharp
+var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
+
+string requestid = "REQUEST-ID";
+var response = await client.OTP.OTPCancelRequest(requestid);
+```
+
+```csharp
+var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
+
+string destination = "DESTINATION-NUMBER";
+var response = await client.OTP.OTPCancelDestination(destination);
+```
+The response object will contain OTP details such as request id, destination number.
 
 ## Getting help
 
