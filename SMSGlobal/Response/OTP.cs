@@ -14,5 +14,9 @@ namespace SMSGlobal.Response
         public string createdTimestamp { get; set; }
         public string lastEventTimestamp { get; set; }
         public string status { get; set; }
+
+        public int statuscode { get; set; }
+
+        public string statusmessage { get; set; }
     }
 }

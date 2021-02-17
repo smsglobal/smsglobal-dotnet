@@ -14,13 +14,13 @@ namespace SMSGlobalTest
           {
               var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 
-              var a = await client.OTP.OTPSend(new
+              var response = await client.OTP.OTPSend(new
               {
                   message = "{*code*} is your SMSGlobal verification code.",
                   destination = "DESTINATION-NUMBER",
               });
 
-              Assert.IsNotNull(a.requestId);
+              Assert.IsNotNull(response);
           }    
 
          [TestMethod]
@@ -30,12 +30,12 @@ namespace SMSGlobalTest
 
             string requestid = "REQUEST-ID";
             string code = "OTP-CODE";
-            var a = await client.OTP.OTPValidateRequest(requestid, new
+            var response = await client.OTP.OTPValidateRequest(requestid, new
             {
                 code = code,
             });
 
-            Assert.IsNotNull(a.requestId);
+            Assert.IsNotNull(response);
          } 
 
          [TestMethod]
@@ -45,12 +45,12 @@ namespace SMSGlobalTest
 
              string destinationid = "DESTINATION-NUMBER";
              string code = "OTP-CODE";
-             var a = await client.OTP.OTPValidateDestination(destinationid, new
+             var response = await client.OTP.OTPValidateDestination(destinationid, new
              {
                  code = code,
              });
 
-             Assert.IsNotNull(a.requestId);
+             Assert.IsNotNull(response);
          }
         
 
@@ -60,8 +60,8 @@ namespace SMSGlobalTest
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 
             string requestid = "REQUEST-ID";
-            var a = await client.OTP.OTPCancelRequest(requestid);
-            Assert.IsNotNull(a.requestId);
+            var response = await client.OTP.OTPCancelRequest(requestid);
+            Assert.IsNotNull(response.requestId);
         }  
        
         [TestMethod]
@@ -70,8 +70,8 @@ namespace SMSGlobalTest
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 
             string destination = "DESTINATION-NUMBER";
-            var a = await client.OTP.OTPCancelDestination(destination);
-            Assert.IsNotNull(a.requestId);
+            var response = await client.OTP.OTPCancelDestination(destination);
+            Assert.IsNotNull(response);
         }       
     }
 }

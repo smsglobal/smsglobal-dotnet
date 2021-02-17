@@ -251,7 +251,16 @@ namespace SMSGlobal.SMS.Transport
         {
             HttpResponseMessage response = await Request("otp", payload);
 
-            return await response.Content.ReadAsAsync<Response.OTPRespone>();
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
         }
 
         /// <summary>
@@ -260,8 +269,16 @@ namespace SMSGlobal.SMS.Transport
         public async Task<Response.OTPRespone> OTPValidateRequest(string requestid, Object payload)
         {
             HttpResponseMessage response = await Request("otp/requestid", payload, null, requestid, null, "validate");
+            Response.OTPRespone otp = new OTPRespone();
 
-            return await response.Content.ReadAsAsync<Response.OTPRespone>();
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
         }
 
         /// <summary>
@@ -271,7 +288,16 @@ namespace SMSGlobal.SMS.Transport
         {
             HttpResponseMessage response = await Request("otp", payload, null, destinationid, null, "validate");
 
-            return await response.Content.ReadAsAsync<Response.OTPRespone>();
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
         }
 
         /// <summary>
@@ -281,7 +307,16 @@ namespace SMSGlobal.SMS.Transport
         {
             HttpResponseMessage response = await Request("otp/requestid", null, null, requestid, null, "cancel");
 
-            return await response.Content.ReadAsAsync<Response.OTPRespone>();
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
         }
 
         /// <summary>
@@ -291,7 +326,16 @@ namespace SMSGlobal.SMS.Transport
         {
             HttpResponseMessage response = await Request("otp", null, null, destinationid, null, "cancel");
 
-            return await response.Content.ReadAsAsync<Response.OTPRespone>();
+            Response.OTPRespone otp = new OTPRespone();
+
+            if ((int)response.StatusCode == 200)
+            {
+                otp = await response.Content.ReadAsAsync<Response.OTPRespone>();
+            }
+
+            otp.statuscode = (int)response.StatusCode;
+            otp.statusmessage = response.ReasonPhrase;
+            return otp;
         }
 
 
@@ -349,8 +393,6 @@ namespace SMSGlobal.SMS.Transport
                     {
                         response = await client.PostAsync(uri.PathAndQuery, new StringContent(json, Encoding.UTF8, "application/json"));
                     }
-
-                    response.EnsureSuccessStatusCode();
 
                     return response;
                 }
