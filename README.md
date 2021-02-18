@@ -2,6 +2,7 @@
 
 ![.NET Core](https://github.com/smsglobal/smsglobal-dotnet/workflows/.NET%20Core/badge.svg)
 [![Nuget](https://img.shields.io/nuget/v/SMSGlobal)](https://www.nuget.org/packages/SMSGlobal)
+![Coverage](https://img.shields.io/codecov/c/gh/smsglobal/smsglobal-dotnet)
 ![downloads](https://img.shields.io/nuget/dt/smsglobal)
 
 ## SMSGlobal REST API and Libraries for .NET
