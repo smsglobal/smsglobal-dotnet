@@ -487,7 +487,7 @@ The response object will contain OTP details such as request id, destination num
  "validUnitlTimestamp":"2021-02-18 11:39:07",
  "createdTimestamp":"2021-02-18 11:29:07",
  "lastEventTimestamp":"2021-02-18 11:29:08",
- "status":"Sent",
+ "status":"Verified",
  "statuscode":200,
  "statusmessage":"OK"
 }
@@ -519,7 +519,7 @@ The response object will contain OTP details such as request id, destination num
  "validUnitlTimestamp":"2021-02-18 11:39:07",
  "createdTimestamp":"2021-02-18 11:29:07",
  "lastEventTimestamp":"2021-02-18 11:29:08",
- "status":"Sent",
+ "status":"Cancelled ",
  "statuscode":200,
  "statusmessage":"OK"
 }
