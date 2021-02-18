@@ -1,0 +1,14 @@
+image: Visual Studio 2015
+
+before_build:
+- nuget restore
+- choco install opencover.portable
+- choco install codecov
+
+build:
+  project: SMSGlobal.sln
+  verbosity: minimal
+
+test_script:
+- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\SMSGlobalTest\bin\Debug\SMSGlobalTest.dll -noshadow" -filter:"+[SMSGlobal*]* -[SMSGlobalTest*]*" -output:".\SMSGlobal_coverage.xml"
+- codecov -f "SMSGlobal_coverage.xml"
