@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="assets/2268128.jpeg">
+    <None Include="assets\SMSGlobal.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
