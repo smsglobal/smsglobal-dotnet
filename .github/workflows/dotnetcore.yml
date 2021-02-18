@@ -27,8 +27,3 @@ jobs:
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-    - name: Publish SMSGlobal
-      uses: brandedoutcast/publish-nuget@v2.5.2
-      with:
-          PROJECT_FILE_PATH: SMSGlobal/SMSGlobal.api.csproj
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
