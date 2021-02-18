@@ -1,10 +1,8 @@
 name: Nuget Publish
 
 on:
-  push:
-    branches: [ develop ]
-  pull_request:
-    branches: [ develop ]
+  release:
+    types: [published]
 
 jobs:
   build:
