@@ -13,7 +13,7 @@ namespace SMSGlobalTest
         {
             var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
 
-            string filter = "";
+            string filter = "limit=1";
             var response = await client.SMS.SMSGetOptOuts(filter);
             Assert.IsNotNull(response);
         }
