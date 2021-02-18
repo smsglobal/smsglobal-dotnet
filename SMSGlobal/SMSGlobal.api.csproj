@@ -6,7 +6,7 @@
     <PackageId>SMSGlobal</PackageId>
     <Authors>SMSGlobal</Authors>
     <Product>SMSGlobal</Product>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Description>Official C#/.NET wrapper for the SMSGlobal API</Description>
     <Copyright>SMSGlobal</Copyright>
     <PackageIcon>SMSGlobal.png</PackageIcon>
