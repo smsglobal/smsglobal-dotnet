@@ -195,6 +195,19 @@ var response = await client.SMS.SMSSend(new { messages = messages });
 ```
 The response object will contain collection of outgoing message objects.
 
+Given below is one example of how the response will look like:
+
+```csharp
+{
+ "id":"6019398301583935",
+ "outgoing_id":"5922424533",
+ "origin":"Test",
+ "message":"This is a test message",
+ "dateTime":"2021-02-17 23:40:56 +0000",
+ "status":"sent"
+}
+```
+
 ### Receive all Messages
 
 This can be used to view list of all outgoing messages. The messages returned can be filtered based on different condition.
@@ -205,7 +218,28 @@ var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-K
 string filter = "limit=1";
 var response = await client.SMS.SMSGetAll(filter);
 ```
-The response object will contain all the sms sent messages objects.
+The response object will contain all the sms sent messages objects such as:
+
+```csharp
+{
+{
+ "id":"6019398301583935",
+ "outgoing_id":"5922424533",
+ "origin":"Test",
+ "message":"This is a test message 1",
+ "dateTime":"2021-02-18 10:40:56 +1100",
+ "status":"delivered"
+},
+{
+ "id":"6019398301583936",
+ "outgoing_id":"5922424524",
+ "origin":"Test",
+ "message":"This is a test message 2",
+ "dateTime":"2021-02-18 10:40:56 +1100",
+ "status":"delivered"
+}
+}
+```
 
 ### Get Message By Id
 
@@ -217,7 +251,18 @@ var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-K
 string id = "SMSGLOBAL-OUTGOING-ID";
 var response = await client.SMS.SMSGetId(id);
 ```
-The response object will contain details of the message.
+The response object will contain details of the message such as:
+
+```csharp
+{
+ "id":"6019398301583935",
+ "outgoing_id":"5922424533",
+ "origin":"Test",
+ "message":"This is a test message",
+ "dateTime":"2021-02-17 23:40:56 +0000",
+ "status":"sent"
+}
+```
 
 ### Delete Message
 
@@ -229,6 +274,7 @@ var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-K
 string id = "SMSGLOBAL-OUTGOING-ID";
 var response = await client.SMS.SMSDeleteId(id);
 ```
+
 The reponse of this request will return status code where 204 means message deleted successfully.
 
 ### Get All Incoming Messages
@@ -241,7 +287,18 @@ var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-K
  string filter = "limit=1";
  var response = await client.SMS.SMSGetIncoming(filter);
 ```
-The response object will contain all the incoming messages objects.
+The response object will contain all the incoming messages objects such as:
+
+```csharp
+{
+ "id":"490571921",
+ "outgoing_id":null,
+ "origin":"61450000000",
+ "message":"Test",
+ "dateTime":"2021-02-15 13:54:43 +1100",
+ "status":null
+}
+```
 
 ### Get Incoming Message By Id
 
@@ -253,7 +310,18 @@ var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-K
 string id = "INCOMING-NUMBER";
 var response = await client.SMS.SMSDeleteIncoming(id);
 ```
-The response object will contain details of the incoming message.
+The response object will contain details of the incoming message such as:
+
+```csharp
+{
+ "id":"490571921",
+ "outgoing_id":null,
+ "origin":"61450000000",
+ "message":"Test",
+ "dateTime":"2021-02-15 13:54:43 +1100",
+ "status":null
+}
+```
 
 ### Delete Incoming Message
 
@@ -277,7 +345,15 @@ var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-K
 string filter = "";
 var response = await client.SMS.SMSGetOptOuts(filter);
 ```
-The response object will contain all the opted number objects.
+The response object will contain all the opted number objects such as:
+
+```csharp
+{
+ "date":"2021-02-18",
+ "number":"16789253159",
+ "status":null
+}
+```
 
 ### Opt Out Number
 
@@ -298,7 +374,15 @@ payload[1] = new
 
 var response = await client.SMS.SMSPostOptOut(new { optouts = payload });
 ```
-The response object will contain collection of Opt out number object. Optout object consist of number and status(exist, valid, and invalid) properties.
+The response object will contain collection of Opt out number object. Optout object consist of number and status(exist, valid, and invalid) properties such as:
+
+```csharp
+{
+ "date":"2021-02-18",
+ "number":"16789253159",
+ "status":valid
+}
+```
 
 ### Validate Opt Out
 
@@ -319,7 +403,15 @@ payload[1] = new
 
 var response = await client.SMS.SMSPostOptOutValidate(new { optouts = payload });
 ```
-The response object will contain collection of Opt out number object. Optout object consist of number and status(exist, valid, and invalid) properties.
+The response object will contain collection of Opt out number object. Optout object consist of number and status(exist, valid, and invalid) properties such as:
+
+```csharp
+{
+ "date":"2021-02-18",
+ "number":"16789253159",
+ "status":valid
+}
+```
 
 ### Opt In Number
 
@@ -346,7 +438,20 @@ var response = await client.OTP.OTPSend(new
     destination = "DESTINATION-NUMBER",
 });
 ```
-The response object will contain OTP details such as request id, destination number.
+The response object will contain OTP details such as request id, destination number such as:
+
+```csharp
+{
+ "requestId":"409261431691990777288109",
+ "destination":"61450000000",
+ "validUnitlTimestamp":"2021-02-18 11:39:07",
+ "createdTimestamp":"2021-02-18 11:29:07",
+ "lastEventTimestamp":"2021-02-18 11:29:08",
+ "status":"Sent",
+ "statuscode":200,
+ "statusmessage":"OK"
+}
+```
 
 ### Verify OTP
 
@@ -373,7 +478,20 @@ var response = await client.OTP.OTPValidateDestination(destinationid, new
    code = code,
 });
 ```
-The response object will contain OTP details such as request id, destination number.
+The response object will contain OTP details such as request id, destination number such as:
+
+```csharp
+{
+ "requestId":"409261431691990777288109",
+ "destination":"61450000000",
+ "validUnitlTimestamp":"2021-02-18 11:39:07",
+ "createdTimestamp":"2021-02-18 11:29:07",
+ "lastEventTimestamp":"2021-02-18 11:29:08",
+ "status":"Sent",
+ "statuscode":200,
+ "statusmessage":"OK"
+}
+```
 
 ### Cancel OTP
 
@@ -392,7 +510,20 @@ var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-K
 string destination = "DESTINATION-NUMBER";
 var response = await client.OTP.OTPCancelDestination(destination);
 ```
-The response object will contain OTP details such as request id, destination number.
+The response object will contain OTP details such as request id, destination number such as:
+
+```csharp
+{
+ "requestId":"409261431691990777288109",
+ "destination":"61450000000",
+ "validUnitlTimestamp":"2021-02-18 11:39:07",
+ "createdTimestamp":"2021-02-18 11:29:07",
+ "lastEventTimestamp":"2021-02-18 11:29:08",
+ "status":"Sent",
+ "statuscode":200,
+ "statusmessage":"OK"
+}
+```
 
 ## Getting help
 
