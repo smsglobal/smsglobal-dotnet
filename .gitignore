@@ -1,20 +1,9 @@
-.vs/slnx.sqlite
-.vs/VSWorkspaceState.json
-.vs/SMSGlobal/v16/TestStore/0/002.testlog
-.vs/smsglobal-dotnet/v16/.suo
-.vs/smsglobal-dotnet/v16/TestStore/0/000.testlog
-.vs/smsglobal-dotnet/v16/TestStore/0/testlog.manifest
-SMSGlobal/bin/Debug/SMSGlobal.api.1.0.0.nupkg
-SMSGlobal/obj/Debug/SMSGlobal.api.1.0.0.nuspec
-SMSGlobal/obj/Release/netstandard2.0/SMSGlobal.api.AssemblyInfo.cs
-SMSGlobal/obj/Release/netstandard2.0/SMSGlobal.api.AssemblyInfoInputs.cache
-SMSGlobal/obj/Release/netstandard2.0/SMSGlobal.api.assets.cache
-SMSGlobalTest/obj/Release/netcoreapp3.1/SMSGlobalTest.AssemblyInfo.cs
-SMSGlobalTest/obj/Release/netcoreapp3.1/SMSGlobalTest.AssemblyInfoInputs.cache
-SMSGlobalTest/obj/Release/netcoreapp3.1/SMSGlobalTest.assets.cache
-SMSGlobalTest/obj/Release/netcoreapp3.1/SMSGlobalTest.csprojAssemblyReference.cache
+# Local IDE info
 .vs/
-SMSGlobalTest/obj/
-SMSGlobal/obj/
-SMSGlobalTest/bin/
-SMSGlobal/bin/
+.idea/
+*.user
+
+# Build artifacts
+**/obj/
+**/bin/
+
