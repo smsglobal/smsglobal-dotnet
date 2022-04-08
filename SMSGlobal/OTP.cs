@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using SMSGlobal.Response;
-using System.Configuration;
 using System.Net.Http;
 
 
