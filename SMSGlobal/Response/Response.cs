@@ -1,5 +1,4 @@
-﻿using Nancy.Json;
-//using System.Web.Script.Serialization;
+﻿using Newtonsoft.Json;
 
 /// <summary>
 /// The response namespace.
@@ -17,7 +16,7 @@ namespace SMSGlobal.Response
         /// <returns>string</returns>
         public override string ToString()
         {
-            return new JavaScriptSerializer().Serialize(this);
+            return JsonConvert.SerializeObject(this); 
         }
     }
 
